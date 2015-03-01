@@ -46,16 +46,28 @@ We see that we use the **sap.m** libray, the **sap_bluecrystal** theme. The id *
 
 We are using the **async** parameter to load all our resources asynchronously, therefore at the bottom we have to use the **attachInit** event to make sure to start with our code after the loading has finished.
 
+## Resources and Namespace
+
+Each application should live inside a namespace and have a fully qualified identifier:
+* app identifier: tdg
+* namespace: sap.ui.demo
+* fully qualified name is *sap.ui.demo.tdg*
+
+Therefore it is necessary to tell the app where to finde those artefacts, this was done with ```data-sap-ui-resourceroots='{ "sap.ui.demo.tdg": "./" }'``` in the bootstraping.
+
+> ./ means in the same folder
+
+## Application startup
 We are creating a ```sap.m.Shell``` which has an app-property, where we put our ```sap.ui.core.ComponentContainer``` , which then tries to instantiate our Component via its name property **sap.ui.demo.tdg**.
 
 Our Component file is called **Component.js** but we are refernecing the name **sap.ui.demo.tdg**. This works because we defined the ```data-sap-ui-resourceroots='{ "sap.ui.demo.tdg": "./" }'```. This means that **sap.ui.demo.tdg** is based in the same folder **/.** and the ComponentContainer is looking automatically for the Component.js file.
 
-The **Compoment.js** file looks like this and there you see it's namespace **sap.ui.demo.tdg.Component**:
+Sneak Peak: The **Compoment.js** file looks like this and there you see it's namespace **sap.ui.demo.tdg.Component**:
 ```
 jQuery.sap.declare("sap.ui.demo.tdg.Component");
 sap.ui.core.UIComponent.extend("sap.ui.demo.tdg.Component", {
 ...
 ``` 
-
+At the end the whole **Shell** is placed at the div with the id **content** with ```.placeAt("content");```. The Shell gives the whole application left and right margin, to look good at big screens, otherwise the app would take the whole width of the screen.
 
 > Async-Parameter from https://sapui5.netweaver.ondemand.com/sdk/docs/guide/91f1e3626f4d1014b6dd926db0e91070.html, this is for the attachInti function
