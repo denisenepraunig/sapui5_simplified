@@ -70,4 +70,7 @@ sap.ui.core.UIComponent.extend("sap.ui.demo.tdg.Component", {
 ``` 
 At the end the whole **Shell** is placed at the div with the id **content** with ```.placeAt("content");```. The Shell gives the whole application left and right margin, to look good at big screens, otherwise the app would take the whole width of the screen.
 
+# Progress check
+When you start the app you only see a blue screen because the Compnent.js is not ready yet.
+
 > Async-Parameter from https://sapui5.netweaver.ondemand.com/sdk/docs/guide/91f1e3626f4d1014b6dd926db0e91070.html, this is for the attachInti function
