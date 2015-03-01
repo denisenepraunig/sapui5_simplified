@@ -45,3 +45,29 @@ To handle translations in your application, we will use a **resource model** (ca
 
 ### Maintainable
 Applications can get big and complex very quickly. To stay on top of things we have the MVC concept and the Component concept. The Component is a concept to use and reuse the application as whole or in parts.
+
+## Design Patterns
+The different patterns used in SAP Fiori are:
+
+* Master-Detail (MD)
+* Master-Master-Detail (MMD)
+* Full Screen (FS)
+* Multi Flow (MF)
+
+This guide uses the Master-Detail pattern, whis is created with the ```sap.m.SplitApp```control. You have your Master on the left side and the Detail on the right sight of your application.
+
+With the Master-Master-Detail you navigate from Master1 to Master2 and then to the Detail.
+In the Full Screen app you see everything on one screen.
+With the Multi Flow you yould switch from a Full Screen to the next Full Screen and then maybe to a Master Detail.
+
+## Business Scenario
+The well known Northwind OData service will be used for this guide. We will be using the **products** entityset. Each product has a relation (association) to 0..1 **supplier** and 0..1 **category**.
+
+We will use a Read-Write V2 version of the Northwind service, our session id is **sapuidemotdg** - feel free to use your own.
+
+```http://services.odata.org/V2/(S(sapuidemotdg))/OData/OData.svc/```
+
+### Functionality
+The app will present a list of existing products. Once a product is selected detailed information about the product, supplier and category will be shown. Navigation to the details of a product will also be possible via URL.
+
+You will also have the possiblity to add a new product which is saved in the backend. You can also provide category and supplier. Only very little to no input validion will be used.
