@@ -33,6 +33,7 @@ TDG stands for **The Definitve Guide**.
                 }).placeAt("content");
             });
         </script>
+        
     </head>
     <body class="sapUiBody" id="content" />
 </html>
